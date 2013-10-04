@@ -1,4 +1,4 @@
-feddback-button
+jquery.buttonspinner
 ===============
 
-A jQuery plugin for feedback in button, using spin.js
+A jQuery plugin for feedback spinner inside a button, using spin.js
