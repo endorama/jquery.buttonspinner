@@ -48,18 +48,31 @@ module.exports = function(grunt) {
           module: true
         }
       }
+    },
+    clean: {
+      build: {
+        src: [ 'build/**', '!build/.gitkeep' ],
+        filter: 'isFile'
+      }
+    },
+    concat: {
+      options: {
+        banner: "<%= meta.banner %>"
+      },
+      build: {
+        src: [ 'src/*' ],
+        dest: 'build/jquery.buttonspinner-<%= pkg.version %>.js'
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
-  // Default task(s).
   grunt.registerTask('test', ['jshint', 'jasmine']);
-  grunt.registerTask('clean', 'jshint');
-  grunt.registerTask('build', ['test', 'uglify'])
+  grunt.registerTask('build', ['test', 'clean', 'concat:build', 'uglify'])
   grunt.registerTask('default', ['test']);
-
-
 };
