@@ -1,5 +1,5 @@
 /**
- * jQuery ButtonSpinner - v1.0.0
+ * jQuery ButtonSpinner - v1.0.1
  * A jQuery plugin for feedback spinner inside a button, using spin.js.
  * https://github.com/endorama/jquery.buttonspinner
  *
