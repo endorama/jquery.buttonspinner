@@ -1,5 +1,5 @@
 /**
- * jQuery ButtonSpinner - v1.0.1
+ * jQuery ButtonSpinner - v1.0.2
  * A jQuery plugin for feedback spinner inside a button, using spin.js.
  * https://github.com/endorama/jquery.buttonspinner
  *
@@ -36,11 +36,14 @@
       data.old_html = $el.html();
       $el.data('buttonspinner', data);
 
+      outer_width = $el.outerWidth() + 'px';
+      outer_height = $el.outerHeight() + 'px';
+
       $content.css('display', 'none');
       $el
         .css({
-          'height': $el.outerHeight(),
-          'width': $el.outerWidth(),
+          'height': outer_height,
+          'width': outer_width,
         })
         .addClass('spinning disabled')
         .spin({
