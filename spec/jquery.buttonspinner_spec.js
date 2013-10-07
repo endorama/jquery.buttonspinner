@@ -56,18 +56,6 @@ describe('jQuery Buttonspinner', function () {
         height: content_outer_heigth
       });
     });
-
-    // it("should set width on button element", function() {
-    //   expect($button).toHaveCss({ width: $button.outerWidth() + 'px' });
-    // });
-
-    // it("should set width equal to content width", function() {
-
-    // });
-
-    // it("should set height on button element", function() {
-
-    // });
     
     it('should add class spinning', function() {
       expect($button).toHaveClass('spinning');
