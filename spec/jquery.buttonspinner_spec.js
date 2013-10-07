@@ -31,10 +31,12 @@ describe('jQuery Buttonspinner', function () {
   });
 
   describe('start()', function() {
-    var old_html;
+    var old_html, content_outer_width, content_outer_heigth;
 
     beforeEach(function() {
       old_html = $button.html();
+      content_outer_width = $button.outerWidth() + 'px';
+      content_outer_heigth = $button.outerHeight() + 'px';
       $button.buttonspinner('start');
     });
 
@@ -50,10 +52,22 @@ describe('jQuery Buttonspinner', function () {
     
     it('should set dimension on button element', function() {
       expect($button).toHaveCss({
-        width: $button.outerWidth() + 'px',
-        height: $button.outerHeight() + 'px'
+        width: content_outer_width,
+        height: content_outer_heigth
       });
     });
+
+    // it("should set width on button element", function() {
+    //   expect($button).toHaveCss({ width: $button.outerWidth() + 'px' });
+    // });
+
+    // it("should set width equal to content width", function() {
+
+    // });
+
+    // it("should set height on button element", function() {
+
+    // });
     
     it('should add class spinning', function() {
       expect($button).toHaveClass('spinning');
