@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Buttonspinner Demo</title>
+
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/demo.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  </head>
+  <body>
+    <div id="container">
+      <h1>Buttons elements</h1>
+      <p>
+        <button data-buttonspinner type="button" class="btn btn-default">Default</button>
+        <button data-buttonspinner type="button" class="btn btn-primary">Primary</button>
+        <button data-buttonspinner type="button" class="btn btn-success">Success</button>
+        <button data-buttonspinner type="button" class="btn btn-info">Info</button>
+        <button data-buttonspinner type="button" class="btn btn-warning">Warning</button>
+        <button data-buttonspinner type="button" class="btn btn-danger">Danger</button>
+        <button data-buttonspinner type="button" class="btn btn-link">Link</button>
+      </p>
+      <h1>Link elements</h1>
+      <p>
+        <a data-buttonspinner class="btn btn-default">Default</a>
+        <a data-buttonspinner class="btn btn-primary">Primary</a>
+        <a data-buttonspinner class="btn btn-success">Success</a>
+        <a data-buttonspinner class="btn btn-info">Info</a>
+        <a data-buttonspinner class="btn btn-warning">Warning</a>
+        <a data-buttonspinner class="btn btn-danger">Danger</a>
+        <a data-buttonspinner class="btn btn-link">Link</a>
+      </p>
+    </div>
+
+    <script src="../vendor/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="../vendor/spin.min.js" type="text/javascript"></script>
+    <script src="../vendor/jquery.spin.js" type="text/javascript"></script>
+    <script src="../src/jquery.buttonspinner.js" type="text/javascript"></script>
+    <script src="../src/jquery.buttonspinner.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $('[data-buttonspinner]').buttonspinner();
+
+      $('[data-buttonspinner]').on('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+    
+        $this = $(this);
+        $this.buttonspinner('start');
+        /*
+         Please be aware of the 'this' issue when using setTimeout!
+         Using jquery Proxy start/stop the correct button.
+
+         Using a "standard" setTimeout with the exact same code not wrapped in
+         proxy will execute the stop ON THE LAST BUTTON PRESSED.
+         So for example if you have multiple buttons, pressing the first and then
+         the second will result in sopt() being execute 2 times on the second
+         button and never on the first!!!
+        */
+        setTimeout($.proxy(function() {
+          this.buttonspinner('stop');
+        }, $this), 2000);
+      });
+    </script>
+  </body>
+</html>
