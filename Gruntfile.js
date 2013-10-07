@@ -24,16 +24,31 @@ module.exports = function(grunt) {
         ],
         keepRunner: true
       }
+    },
+    jshint: {
+      // define the files to lint
+      files: ['gruntfile.js', 'src/**/*.js', 'spec/**/*.js'],
+      // configure JSHint (documented at http://www.jshint.com/docs/)
+      options: {
+          // more options here if you want to override JSHint defaults
+        globals: {
+          jQuery: true,
+          console: true,
+          module: true
+        }
+      }
     }
   });
 
-  // Load the plugin that provides the "uglify" task.
   // grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
 
   // Default task(s).
   // grunt.registerTask('test', ['jshint', 'jasmine']);
   grunt.registerTask('test', ['jasmine']);
+  grunt.registerTask('clean', 'jshint');
   grunt.registerTask('default', ['test']);
+
 
 };
