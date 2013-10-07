@@ -16,7 +16,13 @@ module.exports = function(grunt) {
       src: "src/**/*.js",
       options: {
         specs: "spec/**/*_spec.js",
-        vendor: "vendor/**/*.js"
+        vendor: [
+          "vendor/jquery/jquery-1.10.2.min.js",
+          "vendor/spin.min.js",
+          "vendor/jquery.spin.js",
+          "vendor/jasmine-jquery.1.5.91.js"
+        ],
+        keepRunner: true
       }
     }
   });
