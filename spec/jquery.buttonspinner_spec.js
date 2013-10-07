@@ -56,7 +56,7 @@ describe('jQuery Buttonspinner', function () {
     });
     
     it('should add class spinning', function() {
-      expect($button).toHaveClass('spinning')
+      expect($button).toHaveClass('spinning');
     });
 
     it('should add class disabled', function() {

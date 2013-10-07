@@ -63,7 +63,7 @@
       $el.addClass('button-spinner');
       // add a container for hide/show of button label
       if (!$content.length) {
-        $el.html('<span class="button-spinner-label">' + $el.html() + '</span>')
+        $el.html('<span class="button-spinner-label">' + $el.html() + '</span>');
         $content = $('.button-spinner-label', $el);
       }
     }
